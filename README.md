@@ -1,5 +1,8 @@
 # protoc-gen-go-filter
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/hsuanshao/protoc-gen-gofilter.svg)](https://pkg.go.dev/github.com/hsuanshao/protoc-gen-gofilter)
+[![Go Report Card](https://goreportcard.com/badge/github.com/hsuanshao/protoc-gen-gofilter)](https://goreportcard.com/badge/github.com/hsuanshao/protoc-gen-gofilter)
+
 High-performance, Zero-Reflection Field-Level Permission Control for Go Protobuf.
 
 `protoc-gen-go-filter` is a Protoc plugin designed to solve "Field-Level" granular permission control issues in gRPC/Protobuf services. It generates efficient filtering code via Code Generation, avoiding the performance overhead and type unsafety of traditional Go Reflection.
