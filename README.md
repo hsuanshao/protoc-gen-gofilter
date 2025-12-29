@@ -26,7 +26,7 @@ Import the dependency in your project:
 
 ```bash
 go get github.com/hsuanshao/protoc-gen-gofilter
-```
+```ds
 
 ## 🚀 Quick Start
 
@@ -45,7 +45,7 @@ package myapp;
 option go_package = "example.com/my-project/pb/myapp";
 
 // 1. Import definition
-import "third_party/filter.proto"; 
+import "github.com/hsuanshao/protoc-gen-gofilter/protos/filter/filter.proto"; 
 
 message UserProfile {
   int64 id = 1;
