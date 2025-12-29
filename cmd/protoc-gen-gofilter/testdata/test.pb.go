@@ -82,6 +82,58 @@ func (x *TestMessage) GetSecretNumber() int32 {
 	return 0
 }
 
+type Test2Message struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PublicField   string                 `protobuf:"bytes,1,opt,name=public_field,json=publicField,proto3" json:"public_field,omitempty"`
+	UserName      string                 `protobuf:"bytes,2,opt,name=user_name,json=userName,proto3" json:"user_name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Test2Message) Reset() {
+	*x = Test2Message{}
+	mi := &file_cmd_protoc_gen_gofilter_testdata_test_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Test2Message) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Test2Message) ProtoMessage() {}
+
+func (x *Test2Message) ProtoReflect() protoreflect.Message {
+	mi := &file_cmd_protoc_gen_gofilter_testdata_test_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Test2Message.ProtoReflect.Descriptor instead.
+func (*Test2Message) Descriptor() ([]byte, []int) {
+	return file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Test2Message) GetPublicField() string {
+	if x != nil {
+		return x.PublicField
+	}
+	return ""
+}
+
+func (x *Test2Message) GetUserName() string {
+	if x != nil {
+		return x.UserName
+	}
+	return ""
+}
+
 var File_cmd_protoc_gen_gofilter_testdata_test_proto protoreflect.FileDescriptor
 
 const file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDesc = "" +
@@ -90,7 +142,10 @@ const file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDesc = "" +
 	"\vTestMessage\x12!\n" +
 	"\fpublic_field\x18\x01 \x01(\tR\vpublicField\x125\n" +
 	"\rprivate_field\x18\x02 \x01(\tB\x10\x82\xa6\x1d\ftest.privateR\fprivateField\x124\n" +
-	"\rsecret_number\x18\x03 \x01(\x05B\x0f\x82\xa6\x1d\vtest.secretR\fsecretNumberB?Z=github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdatab\x06proto3"
+	"\rsecret_number\x18\x03 \x01(\x05B\x0f\x82\xa6\x1d\vtest.secretR\fsecretNumber\"N\n" +
+	"\fTest2Message\x12!\n" +
+	"\fpublic_field\x18\x01 \x01(\tR\vpublicField\x12\x1b\n" +
+	"\tuser_name\x18\x02 \x01(\tR\buserNameB?Z=github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdatab\x06proto3"
 
 var (
 	file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDescOnce sync.Once
@@ -104,9 +159,10 @@ func file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDescGZIP() []byte {
 	return file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDescData
 }
 
-var file_cmd_protoc_gen_gofilter_testdata_test_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_cmd_protoc_gen_gofilter_testdata_test_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_cmd_protoc_gen_gofilter_testdata_test_proto_goTypes = []any{
-	(*TestMessage)(nil), // 0: test.TestMessage
+	(*TestMessage)(nil),  // 0: test.TestMessage
+	(*Test2Message)(nil), // 1: test.Test2Message
 }
 var file_cmd_protoc_gen_gofilter_testdata_test_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -127,7 +183,7 @@ func file_cmd_protoc_gen_gofilter_testdata_test_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDesc), len(file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

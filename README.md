@@ -69,11 +69,11 @@ message UserProfile {
 
 ### Step 2: Generate Go Code
 
-When running `protoc`, add the `--go-filter_out` parameter.
+When running `protoc`, add the `--gofilter_out` parameter.
 
 ```bash
 protoc --go_out=. --go_opt=paths=source_relative \
-       --go-filter_out=. --go-filter_opt=paths=source_relative \
+       --gofilter_out=. --gofilter_opt=paths=source_relative \
        --proto_path=. \
        myapp.proto
 ```

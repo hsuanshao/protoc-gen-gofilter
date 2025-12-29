@@ -11,3 +11,8 @@ message TestMessage {
   string private_field = 2 [(filter.apply) = "test.private"];
   int32 secret_number = 3 [(filter.apply) = "test.secret"];
 }
+
+message Test2Message {
+  string public_field = 1;
+  string user_name = 2;
+}

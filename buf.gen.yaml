@@ -1,5 +1,5 @@
 version: v1
 plugins:
-  - plugin: protoc-gen-gofilter
+  - plugin: go
     out: .
     opt: paths=source_relative

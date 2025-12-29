@@ -83,4 +83,74 @@ func TestEndToEndGeneration(t *testing.T) {
 			t.Errorf("Generated code missing snippet: %q", snippet)
 		}
 	}
+
+	// Verify that Test2Message (which has no filter options) does NOT have specific code generated
+	unexpectedSnippets := []string{
+		`func (x *Test2Message) FilterFields`,
+	}
+	for _, snippet := range unexpectedSnippets {
+		if strings.Contains(content, snippet) {
+			t.Errorf("Generated code contains unexpected snippet: %q", snippet)
+		}
+	}
+}
+
+func TestOptionalFieldGeneration(t *testing.T) {
+	// 1. Build the plugin binary
+	tempDir := t.TempDir()
+	pluginPath := filepath.Join(tempDir, "protoc-gen-gofilter")
+
+	buildCmd := exec.Command("go", "build", "-o", pluginPath, ".")
+	if out, err := buildCmd.CombinedOutput(); err != nil {
+		t.Fatalf("Failed to build plugin: %v\nOutput: %s", err, out)
+	}
+
+	// 2. Prepare protoc command
+	projectRoot, err := filepath.Abs("../..")
+	if err != nil {
+		t.Fatalf("Failed to resolve project root: %v", err)
+	}
+
+	outDir := filepath.Join(tempDir, "out")
+	if err := os.MkdirAll(outDir, 0755); err != nil {
+		t.Fatalf("Failed to create output dir: %v", err)
+	}
+
+	// 3. Run protoc with optional.proto
+	testProto := "testdata/optional.proto"
+
+	protocCmd := exec.Command("protoc",
+		"--plugin=protoc-gen-gofilter="+pluginPath,
+		"--gofilter_out="+outDir,
+		"--gofilter_opt=paths=source_relative",
+		"--proto_path="+projectRoot,
+		"--proto_path="+filepath.Join(projectRoot, "cmd/protoc-gen-gofilter"),
+		testProto,
+	)
+
+	if out, err := protocCmd.CombinedOutput(); err != nil {
+		// This is where we expect it to fail if optional is not supported
+		t.Logf("Project Root: %s", projectRoot)
+		t.Fatalf("Failed to run protoc: %v\nOutput: %s", err, out)
+	}
+
+	// 4. Verify generated file exists
+	genFile := filepath.Join(outDir, "testdata/optional_filter.pb.go")
+	contentBytes, err := os.ReadFile(genFile)
+	if err != nil {
+		t.Fatalf("Failed to read generated file: %v", err)
+	}
+	content := string(contentBytes)
+
+	// Check for proper nil assignment for optional field
+	expectedSnippets := []string{
+		`func (x *OptionalMessage) FilterFields(mask `,
+		`x.SecretOptional = nil`,
+	}
+
+	for _, snippet := range expectedSnippets {
+		if !strings.Contains(content, snippet) {
+			t.Errorf("Generated code missing snippet: %q", snippet)
+		}
+	}
 }

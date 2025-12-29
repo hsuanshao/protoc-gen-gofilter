@@ -1,12 +1,14 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/descriptorpb"
+	"google.golang.org/protobuf/types/pluginpb"
 
 	// 引入本專案定義的 extension
 	pb "github.com/hsuanshao/protoc-gen-gofilter/protos/filter"
@@ -16,7 +18,11 @@ import (
 const runtimePackage = protogen.GoImportPath("github.com/hsuanshao/protoc-gen-gofilter/entity/filter")
 
 func main() {
-	protogen.Options{}.Run(func(gen *protogen.Plugin) error {
+	var flags flag.FlagSet
+	protogen.Options{
+		ParamFunc: flags.Set,
+	}.Run(func(gen *protogen.Plugin) error {
+		gen.SupportedFeatures = uint64(pluginpb.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL)
 		for _, f := range gen.Files {
 			if !f.Generate {
 				continue

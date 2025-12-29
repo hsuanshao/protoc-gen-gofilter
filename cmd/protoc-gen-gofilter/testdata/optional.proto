@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package test;
+
+option go_package = "github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdata";
+
+import "protos/filter/filter.proto";
+
+message OptionalMessage {
+  optional string secret_optional = 1 [(filter.apply) = "test.secret_optional"];
+}
