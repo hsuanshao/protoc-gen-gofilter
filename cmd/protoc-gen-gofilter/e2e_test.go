@@ -37,7 +37,7 @@ func TestEndToEndGeneration(t *testing.T) {
 	}
 
 	// 3. Run protoc
-	testProto := "pkgs/filter/testdata/test.proto"
+	testProto := "testdata/test.proto"
 
 	// We need to pass --plugin to use our built binary
 	// And we need --gofilter_out to trigger our plugin
@@ -50,6 +50,7 @@ func TestEndToEndGeneration(t *testing.T) {
 		"--gofilter_out="+outDir,
 		"--gofilter_opt=paths=source_relative",
 		"--proto_path="+projectRoot,
+		"--proto_path="+filepath.Join(projectRoot, "cmd/protoc-gen-gofilter"),
 		testProto,
 	)
 
@@ -59,7 +60,7 @@ func TestEndToEndGeneration(t *testing.T) {
 	}
 
 	// 4. Verify generated file exists and contains expected content
-	genFile := filepath.Join(outDir, "pkgs/filter/testdata/test_filter.pb.go")
+	genFile := filepath.Join(outDir, "testdata/test_filter.pb.go")
 	contentBytes, err := os.ReadFile(genFile)
 	if err != nil {
 		t.Fatalf("Failed to read generated file: %v", err)
