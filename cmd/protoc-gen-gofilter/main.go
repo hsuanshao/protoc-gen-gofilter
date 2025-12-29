@@ -10,11 +10,11 @@ import (
 	"google.golang.org/protobuf/types/descriptorpb"
 	"google.golang.org/protobuf/types/pluginpb"
 
-	// 引入本專案定義的 extension
+	// Import the extension defined in this project
 	pb "github.com/hsuanshao/protoc-gen-gofilter/protos/filter"
 )
 
-// 定義 Runtime Library 的 Import Path
+// Define the Import Path of the Runtime Library
 const runtimePackage = protogen.GoImportPath("github.com/hsuanshao/protoc-gen-gofilter/entity/filter")
 
 func main() {
@@ -41,11 +41,11 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 	g.P("package ", file.GoPackageName)
 	g.P()
 
-	// 自動引入 Runtime Library
+	// Automatically import Runtime Library
 	registryIdent := runtimePackage.Ident("Registry")
 	bitSetIdent := runtimePackage.Ident("BitSet")
 
-	// 遍歷 Messages
+	// Iterate through Messages
 	for _, message := range file.Messages {
 		generateMessageLogic(g, message, registryIdent, bitSetIdent)
 	}
@@ -64,7 +64,7 @@ func generateMessageLogic(g *protogen.GeneratedFile, message *protogen.Message, 
 		if !ok {
 			continue
 		}
-		// 解析 Extension: filter.apply
+		// Parse Extension: filter.apply
 		if !proto.HasExtension(opts, pb.E_Apply) {
 			continue
 		}
