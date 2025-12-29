@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package test;
+
+option go_package = "github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdata";
+
+import "protos/filter/filter.proto";
+
+message TestMessage {
+  string public_field = 1;
+  string private_field = 2 [(filter.apply) = "test.private"];
+  int32 secret_number = 3 [(filter.apply) = "test.secret"];
+}

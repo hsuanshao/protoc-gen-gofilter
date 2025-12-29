@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package filter;
+
+import "google/protobuf/descriptor.proto";
+
+// 設定 Go Package 路徑，這非常重要，讓使用者可以直接 go get
+option go_package = "github.com/hsuanshao/protoc-gen-gofilter/protos/filter";
+
+// 擴充 FieldOptions
+extend google.protobuf.FieldOptions {
+  // 使用者在欄位上標記: [(filter.apply) = "permission.string"]
+  string apply = 60000; 
+}
