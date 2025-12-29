@@ -1,0 +1,10 @@
+version: v1
+name: buf.build/hsuanshao/protoc-gen-gofilter
+lint:
+  use:
+    - DEFAULT
+breaking:
+  use:
+    - FILE
+build:
+  roots:
