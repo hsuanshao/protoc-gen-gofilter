@@ -1,5 +1,10 @@
 # protoc-gen-go-filter
 
+
+<div style="text-align: center; padding: 20px;">
+    <img src=./.doc/imgs/gofilter.jpg width="50%" />
+</div>
+
 [![Go Reference](https://pkg.go.dev/badge/github.com/hsuanshao/protoc-gen-gofilter.svg)](https://pkg.go.dev/github.com/hsuanshao/protoc-gen-gofilter)
 [![Go Report Card](https://goreportcard.com/badge/github.com/hsuanshao/protoc-gen-gofilter)](https://goreportcard.com/badge/github.com/hsuanshao/protoc-gen-gofilter)
 
