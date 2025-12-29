@@ -34,6 +34,9 @@ func main() {
 }
 
 func generateFile(gen *protogen.Plugin, file *protogen.File) {
+	if !hasFilter(file.Messages) {
+		return
+	}
 	filename := file.GeneratedFilenamePrefix + "_filter.pb.go"
 	g := gen.NewGeneratedFile(filename, file.GoImportPath)
 
@@ -126,4 +129,22 @@ func buildZeroValueStmt(field *protogen.Field) string {
 	default:
 		return fieldName + " = 0"
 	}
+}
+
+func hasFilter(messages []*protogen.Message) bool {
+	for _, message := range messages {
+		for _, field := range message.Fields {
+			opts, ok := field.Desc.Options().(*descriptorpb.FieldOptions)
+			if !ok {
+				continue
+			}
+			if proto.HasExtension(opts, pb.E_Apply) {
+				return true
+			}
+		}
+		if hasFilter(message.Messages) {
+			return true
+		}
+	}
+	return false
 }

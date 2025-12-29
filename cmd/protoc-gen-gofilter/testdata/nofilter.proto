@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package test;
+
+option go_package = "github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdata";
+
+message NoFilterMessage {
+  string name = 1;
+  int32 id = 2;
+}

@@ -154,3 +154,48 @@ func TestOptionalFieldGeneration(t *testing.T) {
 		}
 	}
 }
+
+func TestNoFilterGeneration(t *testing.T) {
+	// 1. Build the plugin binary
+	tempDir := t.TempDir()
+	pluginPath := filepath.Join(tempDir, "protoc-gen-gofilter")
+
+	buildCmd := exec.Command("go", "build", "-o", pluginPath, ".")
+	if out, err := buildCmd.CombinedOutput(); err != nil {
+		t.Fatalf("Failed to build plugin: %v\nOutput: %s", err, out)
+	}
+
+	// 2. Prepare protoc command
+	projectRoot, err := filepath.Abs("../..")
+	if err != nil {
+		t.Fatalf("Failed to resolve project root: %v", err)
+	}
+
+	outDir := filepath.Join(tempDir, "out")
+	if err := os.MkdirAll(outDir, 0755); err != nil {
+		t.Fatalf("Failed to create output dir: %v", err)
+	}
+
+	// 3. Run protoc with nofilter.proto
+	testProto := "testdata/nofilter.proto"
+
+	protocCmd := exec.Command("protoc",
+"--plugin=protoc-gen-gofilter="+pluginPath,
+"--gofilter_out="+outDir,
+"--gofilter_opt=paths=source_relative",
+"--proto_path="+projectRoot,
+"--proto_path="+filepath.Join(projectRoot, "cmd/protoc-gen-gofilter"),
+testProto,
+)
+
+	if out, err := protocCmd.CombinedOutput(); err != nil {
+		t.Logf("Project Root: %s", projectRoot)
+		t.Fatalf("Failed to run protoc: %v\nOutput: %s", err, out)
+	}
+
+	// 4. Verify generated file DOES NOT exist
+	genFile := filepath.Join(outDir, "testdata/nofilter_filter.pb.go")
+	if _, err := os.Stat(genFile); !os.IsNotExist(err) {
+		t.Errorf("Generated file %s should NOT exist", genFile)
+	}
+}

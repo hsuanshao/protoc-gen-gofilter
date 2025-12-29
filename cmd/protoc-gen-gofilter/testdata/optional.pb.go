@@ -70,9 +70,9 @@ var File_cmd_protoc_gen_gofilter_testdata_optional_proto protoreflect.FileDescri
 
 const file_cmd_protoc_gen_gofilter_testdata_optional_proto_rawDesc = "" +
 	"\n" +
-	"/cmd/protoc-gen-gofilter/testdata/optional.proto\x12\x04test\x1a\x1aprotos/filter/filter.proto\"m\n" +
-	"\x0fOptionalMessage\x12F\n" +
-	"\x0fsecret_optional\x18\x01 \x01(\tB\x18\x82\xa6\x1d\x14test.secret_optionalH\x00R\x0esecretOptional\x88\x01\x01B\x12\n" +
+	"/cmd/protoc-gen-gofilter/testdata/optional.proto\x12\x04test\x1a\x1aprotos/filter/filter.proto\"n\n" +
+	"\x0fOptionalMessage\x12G\n" +
+	"\x0fsecret_optional\x18\x01 \x01(\tB\x19\x82\xfc\xa4\x02\x14test.secret_optionalH\x00R\x0esecretOptional\x88\x01\x01B\x12\n" +
 	"\x10_secret_optionalB?Z=github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdatab\x06proto3"
 
 var (

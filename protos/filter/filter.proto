@@ -10,5 +10,5 @@ option go_package = "github.com/hsuanshao/protoc-gen-gofilter/protos/filter";
 // Extend FieldOptions
 extend google.protobuf.FieldOptions {
   // Users tag fields with: [(filter.apply) = "permission.string"]
-  string apply = 60000; 
+  string apply = 600000; 
 }

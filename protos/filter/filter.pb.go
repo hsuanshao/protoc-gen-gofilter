@@ -25,18 +25,18 @@ var file_protos_filter_filter_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
 		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
 		ExtensionType: (*string)(nil),
-		Field:         60000,
+		Field:         600000,
 		Name:          "filter.apply",
-		Tag:           "bytes,60000,opt,name=apply",
+		Tag:           "bytes,600000,opt,name=apply",
 		Filename:      "protos/filter/filter.proto",
 	},
 }
 
 // Extension fields to descriptorpb.FieldOptions.
 var (
-	// 使用者在欄位上標記: [(filter.apply) = "permission.string"]
+	// Users tag fields with: [(filter.apply) = "permission.string"]
 	//
-	// optional string apply = 60000;
+	// optional string apply = 600000;
 	E_Apply = &file_protos_filter_filter_proto_extTypes[0]
 )
 
@@ -45,7 +45,7 @@ var File_protos_filter_filter_proto protoreflect.FileDescriptor
 const file_protos_filter_filter_proto_rawDesc = "" +
 	"\n" +
 	"\x1aprotos/filter/filter.proto\x12\x06filter\x1a google/protobuf/descriptor.proto:5\n" +
-	"\x05apply\x12\x1d.google.protobuf.FieldOptions\x18\xe0\xd4\x03 \x01(\tR\x05applyB8Z6github.com/hsuanshao/protoc-gen-gofilter/protos/filterb\x06proto3"
+	"\x05apply\x12\x1d.google.protobuf.FieldOptions\x18\xc0\xcf$ \x01(\tR\x05applyB8Z6github.com/hsuanshao/protoc-gen-gofilter/protos/filterb\x06proto3"
 
 var file_protos_filter_filter_proto_goTypes = []any{
 	(*descriptorpb.FieldOptions)(nil), // 0: google.protobuf.FieldOptions
