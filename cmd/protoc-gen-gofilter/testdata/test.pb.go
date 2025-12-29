@@ -86,11 +86,12 @@ var File_cmd_protoc_gen_gofilter_testdata_test_proto protoreflect.FileDescriptor
 
 const file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDesc = "" +
 	"\n" +
-	"+cmd/protoc-gen-gofilter/testdata/test.proto\x12\x04test\x1a\x1aprotos/filter/filter.proto\"\x9f\x01\n" +
+	"+cmd/protoc-gen-gofilter/testdata/test.proto\x12\x04test\x1a\x19proto/filter/filter.proto\"\x9f\x01\n" +
 	"\vTestMessage\x12!\n" +
 	"\fpublic_field\x18\x01 \x01(\tR\vpublicField\x126\n" +
 	"\rprivate_field\x18\x02 \x01(\tB\x11\x82\xfc\xa4\x02\ftest.privateR\fprivateField\x125\n" +
-	"\rsecret_number\x18\x03 \x01(\x05B\x10\x82\xfc\xa4\x02\vtest.secretR\fsecretNumberB?Z=github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdatab\x06proto3"
+	"\rsecret_number\x18\x03 \x01(\x05B\x10\x82\xfc\xa4\x02\vtest.secretR\fsecretNumberB\x84\x01\n" +
+	"\bcom.testB\tTestProtoP\x01Z=github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdata\xa2\x02\x03TXX\xaa\x02\x04Test\xca\x02\x04Test\xe2\x02\x10Test\\GPBMetadata\xea\x02\x04Testb\x06proto3"
 
 var (
 	file_cmd_protoc_gen_gofilter_testdata_test_proto_rawDescOnce sync.Once

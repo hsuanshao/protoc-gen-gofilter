@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: protos/filter/filter.proto
+// source: proto/filter/filter.proto
 
 package filter
 
@@ -21,14 +21,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-var file_protos_filter_filter_proto_extTypes = []protoimpl.ExtensionInfo{
+var file_proto_filter_filter_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
 		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
 		ExtensionType: (*string)(nil),
 		Field:         600000,
 		Name:          "filter.apply",
 		Tag:           "bytes,600000,opt,name=apply",
-		Filename:      "protos/filter/filter.proto",
+		Filename:      "proto/filter/filter.proto",
 	},
 }
 
@@ -37,20 +37,22 @@ var (
 	// Users tag fields with: [(filter.apply) = "permission.string"]
 	//
 	// optional string apply = 600000;
-	E_Apply = &file_protos_filter_filter_proto_extTypes[0]
+	E_Apply = &file_proto_filter_filter_proto_extTypes[0]
 )
 
-var File_protos_filter_filter_proto protoreflect.FileDescriptor
+var File_proto_filter_filter_proto protoreflect.FileDescriptor
 
-const file_protos_filter_filter_proto_rawDesc = "" +
+const file_proto_filter_filter_proto_rawDesc = "" +
 	"\n" +
-	"\x1aprotos/filter/filter.proto\x12\x06filter\x1a google/protobuf/descriptor.proto:5\n" +
-	"\x05apply\x12\x1d.google.protobuf.FieldOptions\x18\xc0\xcf$ \x01(\tR\x05applyB8Z6github.com/hsuanshao/protoc-gen-gofilter/protos/filterb\x06proto3"
+	"\x19proto/filter/filter.proto\x12\x06filter\x1a google/protobuf/descriptor.proto:5\n" +
+	"\x05apply\x12\x1d.google.protobuf.FieldOptions\x18\xc0\xcf$ \x01(\tR\x05applyB\x89\x01\n" +
+	"\n" +
+	"com.filterB\vFilterProtoP\x01Z6github.com/hsuanshao/protoc-gen-gofilter/protos/filter\xa2\x02\x03FXX\xaa\x02\x06Filter\xca\x02\x06Filter\xe2\x02\x12Filter\\GPBMetadata\xea\x02\x06Filterb\x06proto3"
 
-var file_protos_filter_filter_proto_goTypes = []any{
+var file_proto_filter_filter_proto_goTypes = []any{
 	(*descriptorpb.FieldOptions)(nil), // 0: google.protobuf.FieldOptions
 }
-var file_protos_filter_filter_proto_depIdxs = []int32{
+var file_proto_filter_filter_proto_depIdxs = []int32{
 	0, // 0: filter.apply:extendee -> google.protobuf.FieldOptions
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
@@ -59,26 +61,26 @@ var file_protos_filter_filter_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_protos_filter_filter_proto_init() }
-func file_protos_filter_filter_proto_init() {
-	if File_protos_filter_filter_proto != nil {
+func init() { file_proto_filter_filter_proto_init() }
+func file_proto_filter_filter_proto_init() {
+	if File_proto_filter_filter_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_protos_filter_filter_proto_rawDesc), len(file_protos_filter_filter_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_filter_filter_proto_rawDesc), len(file_proto_filter_filter_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   0,
 			NumExtensions: 1,
 			NumServices:   0,
 		},
-		GoTypes:           file_protos_filter_filter_proto_goTypes,
-		DependencyIndexes: file_protos_filter_filter_proto_depIdxs,
-		ExtensionInfos:    file_protos_filter_filter_proto_extTypes,
+		GoTypes:           file_proto_filter_filter_proto_goTypes,
+		DependencyIndexes: file_proto_filter_filter_proto_depIdxs,
+		ExtensionInfos:    file_proto_filter_filter_proto_extTypes,
 	}.Build()
-	File_protos_filter_filter_proto = out.File
-	file_protos_filter_filter_proto_goTypes = nil
-	file_protos_filter_filter_proto_depIdxs = nil
+	File_proto_filter_filter_proto = out.File
+	file_proto_filter_filter_proto_goTypes = nil
+	file_proto_filter_filter_proto_depIdxs = nil
 }

@@ -11,7 +11,7 @@ import (
 	"google.golang.org/protobuf/types/pluginpb"
 
 	// Import the extension defined in this project
-	pb "github.com/hsuanshao/protoc-gen-gofilter/protos/filter"
+	pb "github.com/hsuanshao/protoc-gen-gofilter/proto/filter"
 )
 
 // Define the Import Path of the Runtime Library

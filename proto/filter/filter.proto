@@ -5,7 +5,7 @@ package filter;
 import "google/protobuf/descriptor.proto";
 
 // Set Go Package path, this is important for users to go get directly
-option go_package = "github.com/hsuanshao/protoc-gen-gofilter/protos/filter";
+option go_package = "github.com/hsuanshao/protoc-gen-gofilter/proto/filter";
 
 // Extend FieldOptions
 extend google.protobuf.FieldOptions {

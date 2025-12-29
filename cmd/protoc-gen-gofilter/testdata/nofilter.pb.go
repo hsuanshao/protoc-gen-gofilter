@@ -80,7 +80,8 @@ const file_cmd_protoc_gen_gofilter_testdata_nofilter_proto_rawDesc = "" +
 	"/cmd/protoc-gen-gofilter/testdata/nofilter.proto\x12\x04test\"5\n" +
 	"\x0fNoFilterMessage\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x0e\n" +
-	"\x02id\x18\x02 \x01(\x05R\x02idB?Z=github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdatab\x06proto3"
+	"\x02id\x18\x02 \x01(\x05R\x02idB\x88\x01\n" +
+	"\bcom.testB\rNofilterProtoP\x01Z=github.com/hsuanshao/protoc-gen-gofilter/pkgs/filter/testdata\xa2\x02\x03TXX\xaa\x02\x04Test\xca\x02\x04Test\xe2\x02\x10Test\\GPBMetadata\xea\x02\x04Testb\x06proto3"
 
 var (
 	file_cmd_protoc_gen_gofilter_testdata_nofilter_proto_rawDescOnce sync.Once
